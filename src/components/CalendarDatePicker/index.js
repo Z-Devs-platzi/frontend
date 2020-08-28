@@ -21,7 +21,7 @@ const InputDateTime = ({ eventDate }) => {
 };
 
 InputDateTime.propTypes = {
-  eventDate: PropTypes.string,
+  eventDate: PropTypes.instanceOf(Date),
 };
 
 InputDateTime.defaultProps = {

@@ -13,7 +13,14 @@ const Story = (args) => {
 };
 
 export const CalendarPickerDefault = Story.bind({});
-CalendarPickerDefault.args = {};
+
+const tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);
+
+CalendarPickerDefault.args = {
+  eventDate: tomorrow,
+};
+
 CalendarPickerDefault.parameters = {
   controls: { hideNoControlsWarning: false },
 };
@@ -21,7 +28,9 @@ CalendarPickerDefault.parameters = {
 export default {
   component: CalendarDatePicker,
   title: 'Atom/CalendarDatePicker',
-  argTypes: {},
+  argTypes: {
+    eventDate: { control: 'date' },
+  },
   // Our exports that end in "Data" are not stories.
   excludeStories: /.*Data$/,
 };
